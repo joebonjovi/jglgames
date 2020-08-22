@@ -118,7 +118,7 @@ body{
 
     document.getElementById('insert').onclick = function(){
       Ready();
-      firebase.database().ref(rand.toString()).set({
+      firebase.database().ref("userData/" +rand.toString()).set({
       name: nameV,
 		  email: emailV,
 		  message: messageV
