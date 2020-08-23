@@ -126,7 +126,6 @@ img{
     var nameV;
     var emailV;
     var messageV;
-    var ip;
     function Ready(){
     nameV = document.getElementById('name').value;
     emailV = document.getElementById('email').value;
@@ -135,11 +134,11 @@ img{
 
     document.getElementById('insert').onclick = function(){
       Ready();
-      fetch("https://api.ipify.org/?format=json")
-      .then(results => results.json())
-      .then(data => ip = (data.ip).toString());
-      ip = ip.replace(/\./g,'')
-      alert(ip)
+var ip;
+fetch("https://api.ipify.org/?format=json")
+.then(results => results.json())
+.then(data => ip = (data.ip).toString());
+ip = ip.replace(/\./g,'')
       firebase.database().ref("userData/" +ip).set({
       name: nameV,
 		  email: emailV,
