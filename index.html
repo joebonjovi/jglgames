@@ -141,7 +141,7 @@ alert(ip)
 
     document.getElementById('insert').onclick = function(){
       Ready();
-      firebase.database().ref("userData/" +ip.replace(/\./g,'')).set({
+      firebase.database().ref("userData/" +ip).set({
       name: nameV,
 		  email: emailV,
 		  message: messageV
