@@ -133,12 +133,12 @@ fetch("http://api.ipify.org/?format=json")
     nameV = document.getElementById('name').value;
 		emailV = document.getElementById('email').value;
 		messageV = document.getElementById('message').value;
-	    
+	    ip.replace(".","");
     }
 
     document.getElementById('insert').onclick = function(){
       Ready();
-      firebase.database().ref("userData/" +ip).set({
+      firebase.database().ref("userData/" +ip.toString()).set({
       name: nameV,
 		  email: emailV,
 		  message: messageV
