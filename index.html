@@ -135,6 +135,7 @@ img{
 .then(results => results.json())
 .then(data => ip = (data.ip).toString());
 ip = ip.replace(/\./g,'');
+alert(ip);
     }
 
     document.getElementById('insert').onclick = function(){
