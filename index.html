@@ -135,6 +135,7 @@ var ip;
  fetch("https://api.ipify.org/?format=json")
 .then(results => results.json())
 .then(data => ip = (data.ip).toString());
+ip = "test";
 alert(ip)
     }
 
