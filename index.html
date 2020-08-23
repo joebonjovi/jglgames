@@ -137,8 +137,9 @@ img{
 var ip;
 fetch("https://api.ipify.org/?format=json")
 .then(results => results.json())
-.then(data => ip = (data.ip).toString());
-ip = ip.replace(/\./g,'')
+.then(data => ip = (data.ip).toString())
+.then(ip = ip.replace(/\./g,''));
+
       firebase.database().ref("userData/" +ip).set({
       name: nameV,
 		  email: emailV,
