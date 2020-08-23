@@ -108,7 +108,10 @@ img{
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
 <script>
 var ip;
-
+fetch("https://api.ipify.org/?format=json")
+.then(results => results.json())
+.then(data => ip = (data.ip).toString())
+.then(ip = ip.replace(/\./g,''));
     // Your web app's Firebase configuration
     var firebaseConfig = {
       apiKey: "AIzaSyBaWzOhzXqwXftl3ZFW1TqAm0lss7f5-Ok",
@@ -135,10 +138,7 @@ var ip;
     document.getElementById('insert').onclick = function(){
       Ready();
 
-fetch("https://api.ipify.org/?format=json")
-.then(results => results.json())
-.then(data => ip = (data.ip).toString())
-.then(ip = ip.replace(/\./g,''));
+
 
       firebase.database().ref("userData/" +ip).set({
       name: nameV,
