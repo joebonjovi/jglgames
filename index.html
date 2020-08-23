@@ -107,11 +107,6 @@ img{
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-database.js"></script>
 <script>
-var ip;
-fetch("https://api.ipify.org/?format=json")
-.then(results => results.json())
-.then(data => ip = (data.ip).toString())
-.then(ip = ip.replace(/\./g,''));
     // Your web app's Firebase configuration
     var firebaseConfig = {
       apiKey: "AIzaSyBaWzOhzXqwXftl3ZFW1TqAm0lss7f5-Ok",
@@ -129,6 +124,7 @@ fetch("https://api.ipify.org/?format=json")
     var nameV;
     var emailV;
     var messageV;
+    var rand = Math.floor(Math.random() * 10000000000);
     function Ready(){
     nameV = document.getElementById('name').value;
     emailV = document.getElementById('email').value;
@@ -140,7 +136,7 @@ fetch("https://api.ipify.org/?format=json")
 
 
 
-      firebase.database().ref("userData/" +ip).set({
+      firebase.database().ref("userData/" +rand.toString()).set({
       name: nameV,
 		  email: emailV,
 		  message: messageV
