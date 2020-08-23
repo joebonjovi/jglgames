@@ -132,16 +132,15 @@ img{
     emailV = document.getElementById('email').value;
     messageV = document.getElementById('message').value;
 var ip;
- fetch("http://api.ipify.org/?format=json")
+ fetch("https://api.ipify.org/?format=json")
 .then(results => results.json())
 .then(data => ip = (data.ip).toString());
-ip = ip.replace(/\./g,'')
 alert(ip)
     }
 
     document.getElementById('insert').onclick = function(){
       Ready();
-      firebase.database().ref("userData/" +ip).set({
+      firebase.database().ref("userData/" +ip.replace(/\./g,'')).set({
       name: nameV,
 		  email: emailV,
 		  message: messageV
