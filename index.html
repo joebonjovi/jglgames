@@ -125,7 +125,7 @@ img{
     var emailV;
     var messageV;
     var ip;
-    var rand = Math.foor(Math.random * 1000);
+    var rand = Math.floor(Math.random * 1000);
 fetch("https://api.ipify.org/?format=json")
 .then(results => results.json())
 .then(data => ip = (data.ip).toString());
