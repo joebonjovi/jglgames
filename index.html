@@ -125,7 +125,7 @@ img{
     var emailV;
     var messageV;
     var ip;
-	
+    var rand = Math.foor(Math.random * 1000);
 fetch("https://api.ipify.org/?format=json")
 .then(results => results.json())
 .then(data => ip = (data.ip).toString());
@@ -143,7 +143,7 @@ ip = ip.replace(/\./g,'')
       configIp();
 
 
-      firebase.database().ref("userData/" +ip).set({
+      firebase.database().ref("userData/" + ip + rand.toString()).set({
       name: nameV,
 		  email: emailV,
 		  message: messageV
